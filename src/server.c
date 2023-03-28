@@ -703,6 +703,7 @@ static bool taskReady(struct dqlite_node *d)
 int dqlite_node_start(dqlite_node *t)
 {
 	int rv;
+	dqliteTracingMaybeEnable(true);
 	tracef(">> dqlite_node_start: I am testing the tracing system!\n");
 	printf(">>> dqlite_node_create\n");
 
@@ -711,8 +712,9 @@ int dqlite_node_start(dqlite_node *t)
     strcpy(s, "Hello world!");
     printf("string is: %s\n", s);
 
-	dqliteTracingMaybeEnable(true);
 	tracef("dqlite node start");
+
+	assert(1 == 0);
 	rv = maybeBootstrap(t, t->config.id, t->config.address);
 	if (rv != 0) {
 		tracef("bootstrap failed %d", rv);

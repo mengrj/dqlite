@@ -161,13 +161,6 @@ int dqlite_node_create(dqlite_node_id id,
 		return DQLITE_NOMEM;
 	}
 
-	printf(">>> dqlite_node_create\n");
-
-	// Inject error
-	char *s = malloc(100);
-    strcpy(s, "Hello world!");
-    printf("string is: %s\n", s);
-
 	rv = dqlite__init(*t, id, address, data_dir);
 	if (rv != 0) {
 		sqlite3_free(*t);
@@ -710,6 +703,13 @@ static bool taskReady(struct dqlite_node *d)
 int dqlite_node_start(dqlite_node *t)
 {
 	int rv;
+
+	printf(">>> dqlite_node_create\n");
+
+	// Inject error
+	char *s = malloc(100);
+    strcpy(s, "Hello world!");
+    printf("string is: %s\n", s);
 
 	dqliteTracingMaybeEnable(true);
 	tracef("dqlite node start");

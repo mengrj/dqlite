@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "../include/dqlite.h"
 #include "conn.h"
@@ -157,6 +160,13 @@ int dqlite_node_create(dqlite_node_id id,
 	if (*t == NULL) {
 		return DQLITE_NOMEM;
 	}
+
+	printf(">>> dqlite_node_create\n");
+
+	// Inject error
+	char *s = malloc(100);
+    strcpy(s, "Hello world!");
+    printf("string is: %s\n", s);
 
 	rv = dqlite__init(*t, id, address, data_dir);
 	if (rv != 0) {

@@ -3,9 +3,6 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #include "../include/dqlite.h"
 #include "conn.h"
@@ -703,16 +700,9 @@ static bool taskReady(struct dqlite_node *d)
 int dqlite_node_start(dqlite_node *t)
 {
 	int rv;
-	dqliteTracingMaybeEnable(true);
-	tracef(">> dqlite_node_start: I am testing the tracing system!\n");
-	printf(">>> dqlite_node_create\n");
-
-	// Inject error
-	char *s = malloc(100);
-    free(s);
-    strcpy(s, "Hello world!");
-
 	tracef("dqlite node start");
+
+	dqliteTracingMaybeEnable(true);
 
 	rv = maybeBootstrap(t, t->config.id, t->config.address);
 	if (rv != 0) {

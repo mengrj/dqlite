@@ -714,7 +714,6 @@ int dqlite_node_start(dqlite_node *t)
 
 	tracef("dqlite node start");
 
-	assert(1 == 0);
 	rv = maybeBootstrap(t, t->config.id, t->config.address);
 	if (rv != 0) {
 		tracef("bootstrap failed %d", rv);

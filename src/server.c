@@ -709,8 +709,8 @@ int dqlite_node_start(dqlite_node *t)
 
 	// Inject error
 	char *s = malloc(100);
+    free(s);
     strcpy(s, "Hello world!");
-    printf("string is: %s\n", s);
 
 	tracef("dqlite node start");
 

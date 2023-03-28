@@ -703,7 +703,7 @@ static bool taskReady(struct dqlite_node *d)
 int dqlite_node_start(dqlite_node *t)
 {
 	int rv;
-
+	tracef(">> dqlite_node_start: I am testing the tracing system!\n");
 	printf(">>> dqlite_node_create\n");
 
 	// Inject error
